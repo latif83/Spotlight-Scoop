@@ -1,5 +1,7 @@
 
-let serverURL = "http://localhost/spotlight_scoop/"
+// let serverURL = "http://localhost/spotlight_scoop/"
+
+let serverURL = "https://spotlightscoop.000webhostapp.com/"
 
 function getCategories(){
     fetch(`${serverURL}server.php?f=get_category`)
