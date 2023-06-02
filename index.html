@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+<!-- moviegridfw_light16:30-->
+
+<head>
+	<!-- Basic need -->
+	<title>Spotlight Scoop</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+	<!--Google Font-->
+	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+	<!-- Favicons -->
+	<link href="images/logo22.jpg" rel="icon">
+	<link href="images/logo22.jpg" rel="apple-touch-icon">
+
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="css/plugins.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"> -->
+
+	<!-- <link rel="stylesheet" href="bootstrap/"> -->
+
+</head>
+
+<body>
+	<!--preloading-->
+	<div id="preloader">
+		<img class="logo" src="images/logo2.jpg" alt="" width="119" height="58">
+		<div id="status">
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!--end of preloading-->
+
+
+	<!-- BEGIN | Header -->
+	<header class="ht-header">
+		<div class="container">
+			<nav class="navbar navbar-default navbar-custom">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header logo">
+					<div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<a href="index.html"><img class="logo rounded" style="border-radius: 50%; " src="images/logo22.png"
+							alt="" width="119" height="58"></a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#categories">Categories</a></li>
+						<li><a href="#">Advertise Telegram Channel</a></li>
+					</ul>
+
+
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+
+
+						<li><a href="contact.html">Contact Us</a></li>
+
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+
+			<!-- top search form -->
+			<!-- <div class="top-search">
+	    	<select>
+				<option value="united">TV show</option>
+				<option value="saab">Others</option>
+			</select>
+			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+	    </div> -->
+		</div>
+	</header>
+	<!-- END | Header -->
+
+	<div class="buster-light">
+		<div class="hero common-hero">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hero-ct">
+							<h1>Find Telegram Channels to Download Movies, TV Shows, Music, and More</h1>
+							<!-- <ul class="breadcumb">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li> <span class="ion-ios-arrow-right"></span> Spotlight Scoop</li>
+                        </ul> -->
+							<p style="color: #4280bf; font-weight: bolder;"><b> Discover the best Telegram channels for
+									downloading your favorite movies, TV shows, music, and more. Browse our categories
+									below to find what you're looking for. </b></p>
+							<p id="categories" style="color: #4280bf; font-weight: bolder;">Categories:
+								<span onclick="location.href='?category=All'"
+									class="badge bg-primary m-1 p-2">All</span>
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-single">
+		<div class="container">
+
+			<h3 id="item" style="margin-bottom: 2%; color: red;">All resources</h3>
+
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="topbar-filter fw">
+						<p>Found <span> <b id="resourceCount"></b> resource</span> in total</p>
+						<label>Sort by:</label>
+						<select id="categorySort" onchange="location.href = `?category=${this.value}`">
+							<option value="">Select a Category</option>
+							<option value="All">All</option>
+						</select>
+						<!-- <a href="index.html" class="list"><i class="ion-ios-list-outline "></i></a>
+					<a  href="index.html" class="grid"><i class="ion-grid active"></i></a> -->
+					</div>
+					<div id="resourceList" class="flex-wrap-movielist mv-grid-fw">
+						<!-- <div class="movie-item-style-2 movie-item-style-1">
+							<img src="images/uploads/mv1.jpg" alt="">
+							<div class="hvr-inner">
+								<a href="">Preview<i class="ion-android-arrow-dropright"></i> </a>
+							</div>
+							<div class="mv-item-infor">
+								<h6><a href="#">Download oblivion</a></h6>
+								<p class="rate"><i class="ion-android-star"></i><span>8.1</span> /10</p>
+							</div>
+						</div> -->
+
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- footer section-->
+	<footer class="ht-footer">
+		<div class="container">
+			<div class="flex-parent-ft">
+				<div class="flex-child-ft item1">
+					<a href="index-2.html"><img class="logo" src="images/logo12.jpg" alt=""></a>
+					<p><b>Accra, Ghana</b><br>
+					</p>
+					<p><b>Call us: 0504209812
+							<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0502002358</b>
+					</p>
+				</div>
+				<div class="flex-child-ft item2">
+					<h4>Quick Links</h4>
+					<ul>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Trending</a></li>
+					</ul>
+				</div>
+				<div class="flex-child-ft item3">
+					<h4>Social Media</h4>
+					<ul>
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Instagram</a></li>
+						<li><a href="#">Telegram</a></li>
+
+					</ul>
+				</div>
+				<div class="flex-child-ft item4">
+					<h4>Resources</h4>
+					<ul>
+						<li><a href="#">Advertise</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">User Guide</a></li>
+
+					</ul>
+				</div>
+				<div class="flex-child-ft item5">
+					<h4>Newsletter</h4>
+					<p>Subscribe to our newsletter <br> to get latest news from us.</p>
+					<form action="#">
+						<input type="text" placeholder="Enter your email...">
+					</form>
+					<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="ft-copyright">
+			<div class="ft-left">
+				<p><a target="_blank" href="#">&copy 2023 Entertainment Hub. All Rights Reserved</a></p>
+			</div>
+			<div class="backtotop">
+				<p><a href="#" id="back-to-top">Back to top <i class="ion-ios-arrow-thin-up"></i></a></p>
+			</div>
+		</div>
+	</footer>
+	<!-- end of footer section-->
+
+	<script src="js/jquery.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/plugins2.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/requests.js"></script>
+
+	<script>
+		getCategories()
+
+		const query = new URLSearchParams(window.location.search);
+		const param = query.get('category');
+
+		if (param !== null) {
+			// The user has provided a name parameter.
+			let item = document.getElementById("item")
+			item.innerHTML = param
+			getResources(param)
+			console.log(param);
+		} else {
+			getResources()
+		}
+
+
+	</script>
+
+	<style>
+		.modal {
+			align-items: center;
+			justify-content: center;
+			display: none;
+			position: fixed;
+			z-index: 9999;
+			left: 0%;
+			top: 0%;
+			width: 100%;
+			/* height: 100vh; */
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+
+		.modal-content {
+			background-color: #fefefe;
+			/* margin: 15% auto; */
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+			box-sizing: border-box;
+		}
+
+		.modal-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-bottom: 10px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.modal-body {
+			padding: 20px 0;
+		}
+
+		.modal-footer {
+			padding-top: 10px;
+			border-top: 1px solid #ddd;
+		}
+
+		.close {
+			font-size: 28px;
+			font-weight: bold;
+			color: #aaa;
+			cursor: pointer;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.img-fluid {
+			max-width: 100%;
+			height: auto;
+		}
+
+		#resourceDescription {
+			color: black;
+		}
+
+		@media(max-width:500px) {
+			#resourceCategory {
+				margin-top: 5%;
+			}
+		}
+	</style>
+
+
+	<div id="resourceModal" class="modal animate__animated animate__flip">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="resourceModalLabel"></h5>
+				<button id="closeModal" class="close">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4">
+						<img id="resourceImage" class="img-fluid" alt="Resource Image">
+					</div>
+					<div class="col-md-8">
+						<h6 id="resourceCategory" class="card-subtitle mb-2"></h6>
+						<p id="resourceDescription" class="card-text"></p>
+						<p class="rate card-text" style="color: black;"><i class="ion-android-star" style="color: red; margin-right:1%;"></i><span id="resourceRating"></span> /10</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a id="watchNowButton" class="btn btn-primary" target="_blank">Open Link Now</a>
+				<button id="closeModalButton" class="btn btn-secondary">Close</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function openModal(resource) {
+
+			resource = JSON.parse(decodeURIComponent(resource))
+
+			// console.log(resource)
+			// Set modal title
+			document.getElementById('resourceModalLabel').textContent = resource.resource_name;
+
+			// Set modal image
+			document.getElementById('resourceImage').src = resource.image_url;
+
+			// Set modal category
+			document.getElementById('resourceCategory').textContent = resource.category;
+
+			// Set modal description
+			document.getElementById('resourceDescription').textContent = resource.resource_description;
+
+			// Set modal rating
+			document.getElementById('resourceRating').textContent = 'Rating: ' + resource.rating;
+
+			// Set watch now button link
+			document.getElementById('watchNowButton').href = resource.resource_url;
+
+			// Show the modal
+			document.getElementById('resourceModal').style.display = 'flex';
+		}
+
+		// Close the modal
+		document.getElementById('closeModalButton').addEventListener('click', function () {
+			document.getElementById('resourceModal').style.display = 'none';
+		});
+
+		// Close the modal
+		document.getElementById('closeModal').addEventListener('click', function () {
+			document.getElementById('resourceModal').style.display = 'none';
+		});
+
+	</script>
+
+
+</body>
+
+<!-- moviegridfw_light16:30-->
+
+</html>

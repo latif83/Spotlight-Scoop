@@ -1,0 +1,164 @@
+<div class="container">
+
+    <div class="text-center mb-3">
+        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addResourceModal">
+            <i class="fa-solid fa-circle-plus"></i> Add New
+        </button>
+    </div>
+
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th>Resource Name</th>
+                <th>Resource Description</th>
+                <th>Resource URL</th>
+                <th>Rating</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Actions</th> <!-- Added Actions column -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+
+    <!-- Add Resource Modal -->
+    <div class="modal fade" id="addResourceModal" tabindex="-1" role="dialog" aria-labelledby="addResourceModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form id="resourceForm" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addResourceModalLabel">Add Resource</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="resourceName">Resource Name</label>
+                        <input type="text" class="form-control" id="resourceName" name="resourceName"
+                            placeholder="Enter resource name" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="resourceDescription">Resource Description</label>
+                        <textarea class="form-control" required id="resourceDescription" name="resourceDescription"
+                            placeholder="Enter resource description"></textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="resourceURL">Resource URL</label>
+                        <input type="text" class="form-control" id="resourceURL" name="resourceURL"
+                            placeholder="Enter resource URL" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="rating">Rating</label>
+                        <input type="text" class="form-control" id="rating" name="rating"
+                            placeholder="Enter resource rating" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="imageFile">Image</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" required class="custom-file-input" id="imageFile" name="imageFile"
+                                    accept="image/*">
+                                <label class="custom-file-label" for="imageFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div id="imagePreview" class="mt-2"></div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="categoryID">Category</label>
+                        <select class="form-control" id="category" name="categoryID" required>
+                            <option value="">Select a category</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <!-- <div class="form-group mt-3">
+                        <label for="subcategoryID">Subcategory</label>
+                        <select class="form-control" id="subcategory" name="subcategoryID" required>
+                            <option value="">Select a subcategory</option>
+                        </select>
+                    </div> -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    document.getElementById("imageFile").addEventListener("change", function (event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var imageURL = e.target.result;
+            document.getElementById("imagePreview").innerHTML = `
+          <img src="${imageURL}" class="img-thumbnail img-fluid" style="max-width: 200px;">
+        `;
+        }
+
+        reader.readAsDataURL(file);
+    });
+
+    document.getElementById("resourceForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        const formData = new FormData(document.getElementById("resourceForm")); // create FormData object
+
+        // Display form data in the console (replace with your desired logic)
+        // console.log(formData);
+
+        addResource(formData)
+            .then(d => {
+                // console.log(d)
+                successMessage.innerHTML += d.message
+
+                // const categoryModalCloseBtn = document.querySelector('#categoryModalCloseBtn');
+
+                // categoryModalCloseBtn.click()
+
+                successMessage.classList.remove('d-none')
+
+                setTimeout(() => {
+
+                    // location.href = 'dashboard.html?f=resources'
+
+                }, 1000);
+
+            })
+
+        // Reset the form (optional)
+        // document.getElementById("resourceForm").reset();
+    });
+
+    getResources();
+
+    getCategoriesAdmin().then(
+        data => {
+
+
+            let category = document.getElementById("category")
+
+        
+
+            data.data.forEach(d => {
+
+                category.innerHTML += `
+            <option value="${d.category_name}">${d.category_name}</option>
+            `
+
+            });
+
+        }
+    )
+
+</script>

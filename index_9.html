@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+<!-- moviegridfw_light16:30-->
+<head>
+	<!-- Basic need -->
+	<title>Entertainment Hub</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+	<!-- Favicons -->
+  <link href="images/logo22.jpg" rel="icon">
+  <link href="images/logo22.jpg" rel="apple-touch-icon">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="css/plugins.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<!--preloading-->
+<div id="preloader">
+    <img class="logo" src="images/logo2.jpg" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!--end of preloading-->
+<!--login form popup-->
+<div class="login-wrapper" id="login-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <h3>Login</h3>
+        <form method="post" action="#">
+        	<div class="row">
+        		 <label for="username">
+                    Username:
+                    <input type="text" name="username" id="username" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                </label>
+        	</div>
+           
+            <div class="row">
+            	<label for="password">
+                    Password:
+                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                </label>
+            </div>
+            <div class="row">
+            	<div class="remember">
+					<div>
+						<input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
+					</div>
+            		<a href="#">Forget password ?</a>
+            	</div>
+            </div>
+           <div class="row">
+           	 <button type="submit">Login</button>
+           </div>
+        </form>
+        <div class="row">
+        	<p>Or via social</p>
+            <div class="social-btn-2">
+            	<a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
+            	<a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of login form popup-->
+<!--signup form popup-->
+<div class="login-wrapper"  id="signup-content">
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <h3>sign up</h3>
+        <form method="post" action="#">
+            <div class="row">
+                 <label for="username-2">
+                    Username:
+                    <input type="text" name="username" id="username-2" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                </label>
+            </div>
+           
+            <div class="row">
+                <label for="email-2">
+                    your email:
+                    <input type="password" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                </label>
+            </div>
+             <div class="row">
+                <label for="password-2">
+                    Password:
+                    <input type="password" name="password" id="password-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                </label>
+            </div>
+             <div class="row">
+                <label for="repassword-2">
+                    re-type Password:
+                    <input type="password" name="password" id="repassword-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                </label>
+            </div>
+           <div class="row">
+             <button type="submit">sign up</button>
+           </div>
+        </form>
+    </div>
+</div>
+<!--end of signup form popup-->
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+	<div class="container">
+		<nav class="navbar navbar-default navbar-custom">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header logo">
+				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					    <span class="sr-only">Toggle navigation</span>
+					    <div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+				    </div>
+				    <a href="index_light.html"><img class="logo" src="images/logo22.jpg" alt="" width="119" height="58"></a>
+			    </div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li><a href="#">Home</a></li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							Movies <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a href="movie_cat.html">Action</a></li>
+								<li><a href="movie_cat1.html">Horror </a></li>
+								<li><a href="movie_cat2.html">Adventure</a></li>
+								<li class="it-last"><a href="movie_cat3.html">Comedy</a></li>
+								<li class="it-last"><a href="movie_cat4.html">Romance</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							Music <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a href="movie_cat.html">Gospel</a></li>
+								<li><a href="movie_cat.html">Afrobeat</a></li>
+								<li><a href="movie_cat.html">Hip Pop</a></li>
+								<li><a href="movie_cat.html">Raggae</a></li>
+								<li class="it-last"><a href="movie_cat.html">Highllife</a></li>
+							</ul>
+						</li>
+						<li><a href="blog_1.html">Blog</a></li>
+						<li><a href="#">Trending</a></li>
+						
+					</ul>
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+						                
+						
+						<li><a href="contact.html">Contact Us</a></li>
+						
+					</ul>
+				</div>
+			<!-- /.navbar-collapse -->
+	    </nav>
+	    
+	    <!-- top search form -->
+	    <div class="top-search">
+	    	<select>
+				<option value="united">TV show</option>
+				<option value="saab">Others</option>
+			</select>
+			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+	    </div>
+	</div>
+</header>
+<!-- END | Header -->
+
+
+<div class="slider movie-items">
+	<div class="container">
+		<div class="row">
+			<div class="social-link">
+				<p>Follow us: </p>
+				<a href="#"><i class="ion-social-facebook"></i></a>
+				<a href="#"><i class="ion-social-twitter"></i></a>
+				<a href="#"><i class="ion-social-googleplus"></i></a>
+				<a href="#"><i class="ion-social-youtube"></i></a>
+			</div>
+	    	<div  class="slick-multiItemSlider">
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="images/uploads/slider1.jpg" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue"><a href="#">Sci-fi</a></span>&nbsp;&nbsp;<span class="blue"><a href="m_1.html">Download</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">Interstellar</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+				<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="images/uploads/slider2.jpg" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="yell"><a href="#">action</a></span>&nbsp;&nbsp;<span class="blue"><a href="m_1.html">Download</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">The revenant</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="images/uploads/slider3.jpg" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="green"><a href="#">comedy</a></span>&nbsp;&nbsp;<span class="blue"><a href="m_1.html">Download</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">Die hard</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="images/uploads/slider4.jpg" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="blue"><a href="#">Sci-fi</a></span> <span class="blue"><a href="m_1.html">advanture</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">The walk</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="images/uploads/slider1.jpg" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="blue"><a href="#">Sci-fi</a></span>&nbsp;&nbsp;<span class="blue"><a href="m_1.html">Download</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">Interstellar</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+				<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="images/uploads/slider2.jpg" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="yell"><a href="#">action</a></span>&nbsp;&nbsp;<span class="blue"><a href="m_1.html">Download</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">The revenant</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="images/uploads/slider3.jpg" alt="" width="285" height="437">
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="green"><a href="#">comedy</a></span>&nbsp;&nbsp;<span class="blue"><a href="m_1.html">Download</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">Die hard</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="images/uploads/slider4.jpg" alt="" width="285" height="437">
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="orange"><a href="#">Sci-fi</a></span> <span class="blue"><a href="m_1.html">advanture</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">The walk</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<img src="images/uploads/slider3.jpg" alt="" width="285" height="437">
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="green"><a href="#">comedy</a></span>&nbsp;&nbsp;<span class="blue"><a href="m_1.html">Download</a></span>
+	    				</div>
+	    				<h6><a href="m_1.html">Die hard</a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+</div>
+		
+
+<div class="buster-light">
+<!-- blog grid section-->
+<div class="page-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blogv21.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">Godzilla: King Of The Monsters Adds O’Shea Jackson Jr</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>Looks like Kong: Skull Island started a tradition with its casting of Straight ...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blogv22.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">First Official Images of Alicia Vikander As Tomb Raider’s Lara Croft</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>Aside from the her digital incarnation, the most recognisable image of Tomb ...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blogv23.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">The Boss Baby Holds On At The Top US Box Office</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>He might be a primary protector of New York City, but at heart, Peter Parker is ...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blogv24.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">Stephen King and Owen King's Novel Sleeping Beauties Being</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>It's starting to feel like the seventies and eighties all over again, with ...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blogv29.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">Pablo Larrain Directing Tom Hardy In The True American</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>Back in 2014, it looked like Tom Hardy would be starring for Kathryn...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blog29.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">Michael Keaton Looking To Play A Villain In Dumbo</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>Michael Keaton and Tim Burton haven't collaborated since Batman Returns, but .</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blog27.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">Sam Mendes In Talks To Develop Graphic Novel </a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>We already know that Shailene Woodley and Miles Teller have chemistry of ...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blog26.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">Eric Roth To Write Dune For Denis Villeneuve</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>Though the idea of tackling Frank Herbert's imposing Dune books might send a ...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="blog-item-style-2">
+							<a href="#"><img src="images/uploads/blogv25.jpg" alt=""></a>
+							<div class="blog-it-infor">
+								<h3><a href="m_2.html">John Simm Returning To Doctor Who As The Master</a></h3>
+								<span class="time">27 Mar 2017</span>
+								<p>John Simm's cackling, lunatic regeneration of The Master hasn't been seen on...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+            	<ul class="pagination">
+            		<li class="icon-prev"><a href="#"><i class="ion-ios-arrow-left"></i></a></li>
+            		<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li class="icon-next"><a href="#"><i class="ion-ios-arrow-right"></i></a></li>
+            	</ul>
+			</div>
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="sidebar">
+					<div class="sb-search sb-it">
+						<h4 class="sb-title">Search</h4>
+						<input type="text" placeholder="Enter keywords">
+					</div>
+					<div class="sb-cate sb-it">
+						<h4 class="sb-title">Categories</h4>
+						<ul>
+							<li><a href="#">Awards (50)</a></li>
+							<li><a href="#">Box office (38)</a></li>
+							<li><a href="#">Film reviews (72)</a></li>
+							<li><a href="#">News (45)</a></li>
+							<li><a href="#">Global (06)</a></li>
+						</ul>
+					</div>
+					<div class="sb-recentpost sb-it">
+						<h4 class="sb-title">most popular</h4>
+						<div class="recent-item">
+							<span>01</span><h6><a href="#">Korea Box Office: Beauty and the Beast Wins Fourth</a></h6>
+						</div>
+						<div class="recent-item">
+							<span>02</span><h6><a href="#">Homeland Finale Includes Shocking Death </a></h6>
+						</div>
+						<div class="recent-item">
+							<span>03</span><h6><a href="#">Fate of the Furious Reviews What the Critics Saying</a></h6>
+						</div>
+					</div>
+					<div class="sb-tags sb-it">
+						<h4 class="sb-title">tags</h4>
+						<ul class="tag-items">
+							<li><a href="#">Batman</a></li>
+							<li><a href="#">film</a></li>
+							<li><a href="#">homeland</a></li>
+							<li><a href="#">Fast & Furious</a></li>
+							<li><a href="#">Dead Walker</a></li>
+							<li><a href="#">King</a></li>
+							<li><a href="#">Beauty</a></li>
+						</ul>
+					</div>
+					<div class="ads">
+						<img src="images/uploads/ads1.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end of  blog grid section-->
+		</div>
+			</div>
+		</div>
+	</div>
+</div>
+		</div>
+<!-- footer section-->
+<footer class="ht-footer">
+	<div class="container">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				 <a href="index-2.html"><img class="logo" src="images/logo12.jpg" alt=""></a>
+				 <p><b>Accra, Ghana</b><br>
+				</p>
+				<p><b>Call us: 0504209812 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0502002358</b></p>
+			</div>
+			<div class="flex-child-ft item2">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="#">About Us</a></li> 
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Trending</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item3">
+				<h4>Social Media</h4>
+				<ul>
+					<li><a href="#">Facebook</a></li> 
+					<li><a href="#">Twitter</a></li>	
+					<li><a href="#">Instagram</a></li>
+					<li><a href="#">Telegram</a></li>
+
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#">Advertise</a></li> 
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">User Guide</a></li>
+					
+				</ul>
+			</div>
+			<div class="flex-child-ft item5">
+				<h4>Newsletter</h4>
+				<p>Subscribe to our newsletter <br> to get latest news from us.</p>
+				<form action="#">
+					<input type="text" placeholder="Enter your email...">
+				</form>
+				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="ft-copyright">
+		<div class="ft-left">
+			<p><a target="_blank" href="#">&copy 2023 Entertainment Hub. All Rights Reserved</a></p>
+		</div>
+		<div class="backtotop">
+			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+		</div>
+	</div>
+</footer>
+<!-- end of footer section-->
+
+<script src="js/jquery.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/plugins2.js"></script>
+<script src="js/custom.js"></script>
+</body>
+
+<!-- moviegridfw_light16:30-->
+</html>

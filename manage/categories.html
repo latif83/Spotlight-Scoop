@@ -1,0 +1,315 @@
+<div class="text-end d-md-none mb-3">
+    <button class="btn btn-outline-dark menu-toggle">Menu</button>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Categories</h1>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-dark mb-3" data-bs-toggle="modal"
+                    data-bs-target="#addCategoryModal">
+                    <i class="fas fa-circle-plus"></i> Add New Category
+                </button>
+            </div>
+
+            <div id="successMessage" class="alert d-none alert-primary alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div id="errorMessage" class="alert alert-danger d-none alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr id="loadingRow">
+                        <td colspan="3" class="text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span class="spinner-border text-primary me-2" role="status" aria-hidden="true"></span>
+                                <span>Loading...</span>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Add Category Modal -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="add" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCategoryModalLabel">New Category</h5>
+                <button type="button" id="categoryModalCloseBtn" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="mb-3">
+                    <label for="categoryName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="categoryImage" class="form-label">Category Image:</label>
+                    <input required type="file" name="categoryImage" class="form-control" id="categoryImage">
+                    <img src="#" alt="Preview" id="imagePreview" class="mt-2" style="max-width: 100%;">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Category Modal -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="editCategory" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
+                <button type="button" id="editCategoryModalCloseBtn" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <input type="text" id="cat_id" name="cat_id" hidden>
+
+                <div class="mb-3">
+                    <label for="editCategoryName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="editCategoryName" name="editCategoryName">
+                </div>
+                <div class="mb-3">
+                    <label for="editCategoryImage" class="form-label">Category Image:</label>
+                    <input type="file" name="editCategoryImage" class="form-control" id="editCategoryImage">
+                    <img src="#" alt="Preview" id="editImagePreview" class="mt-2" style="max-width: 100%;">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Make Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    let successMessage = document.getElementById('successMessage')
+    let errorMessage = document.getElementById('errorMessage')
+
+    let categories;
+
+    // Get the file input element
+    const imageInput = document.getElementById('categoryImage');
+
+    // Get the image preview element
+    const imagePreview = document.getElementById('imagePreview');
+
+    // Add a change event listener to the file input element
+    imageInput.addEventListener('change', function () {
+
+        // Get the selected file
+        const file = this.files[0];
+
+        // Create a file reader object
+        const reader = new FileReader();
+
+        // Set up the file reader onload event
+        reader.onload = function () {
+
+            // Update the image preview source with the data URL
+            imagePreview.src = reader.result;
+        }
+
+        // Read the file as a data URL
+        reader.readAsDataURL(file);
+    });
+
+
+    // Get the file input element
+    const editImageInput = document.getElementById('editCategoryImage');
+
+    // Get the image preview element
+    const editImagePreview = document.getElementById('editImagePreview');
+
+    // Add a change event listener to the file input element
+    editImageInput.addEventListener('change', function () {
+
+        // Get the selected file
+        const file = this.files[0];
+
+        // Create a file reader object
+        const reader = new FileReader();
+
+        // Set up the file reader onload event
+        reader.onload = function () {
+
+            // Update the image preview source with the data URL
+            editImagePreview.src = reader.result;
+        }
+
+        // Read the file as a data URL
+        reader.readAsDataURL(file);
+    });
+
+    const form = document.querySelector('form#add');
+    form.addEventListener('submit', handleSubmit);
+
+    function handleSubmit(event) {
+        event.preventDefault(); // prevent the form from submitting normally
+
+        const formData = new FormData(form); // create FormData object
+
+        addCategory(formData)
+            .then(d => {
+                // console.log(d)
+                successMessage.innerHTML += d.message
+
+                const categoryModalCloseBtn = document.querySelector('#categoryModalCloseBtn');
+
+                categoryModalCloseBtn.click()
+
+                successMessage.classList.remove('d-none')
+
+                setTimeout(() => {
+
+                    location.href = 'dashboard.html?f=categories'
+
+                }, 1000);
+
+            })
+
+    }
+
+    const editForm = document.querySelector('form#editCategory');
+    editForm.addEventListener('submit', handleEditSubmit);
+
+    function handleEditSubmit(event) {
+        event.preventDefault(); // prevent the form from submitting normally
+
+        const formData = new FormData(editForm); // create FormData object
+
+        editCategory(formData)
+            .then(d => {
+                // console.log(d)
+                successMessage.innerHTML += d.message
+
+                const editCategoryModalCloseBtn = document.querySelector('#editCategoryModalCloseBtn');
+
+                editCategoryModalCloseBtn.click()
+
+                successMessage.classList.remove('d-none')
+
+                setTimeout(() => {
+
+                    location.href = 'dashboard.html?f=categories'
+
+                }, 1000);
+            })
+
+    }
+
+    function editCategoryForm(categoryID) {
+
+        let category = categories.filter((cat) => cat.category_id == categoryID)
+
+        let editImagePreview = document.getElementById('editImagePreview')
+        let editCategoryName = document.getElementById('editCategoryName')
+        let cat_id = document.getElementById('cat_id')
+
+        editImagePreview.src = "../" + category[0].image_url
+        editCategoryName.value = category[0].category_name
+        cat_id.value = categoryID
+
+    }
+
+    function removeCategory(categoryID) {
+
+        const confirmDel = confirm("Confirm Removal of category");
+
+        // Create a new FormData object
+        const formData = new FormData();
+
+        // Append the data to the FormData object
+        formData.append('cat_id', categoryID);
+
+        if (confirmDel) {
+            deleteCategory(formData)
+                .then(
+                    (d) => {
+                        // console.log(d)
+
+                        successMessage.innerHTML += d.msg
+
+                        successMessage.classList.remove('d-none')
+
+                        setTimeout(() => {
+
+                            location.href = 'dashboard.html?f=categories'
+
+                        }, 1000);
+
+                    }
+                )
+        }
+
+    }
+
+    let loadingRow = document.getElementById('loadingRow')
+
+
+    getCategoriesAdmin().then(
+        data => {
+            // console.log(data)
+
+            categories = data.data
+
+            let tbody = document.querySelector('tbody')
+
+            loadingRow.classList.add('d-none')
+
+            data.data.forEach(d => {
+
+                tbody.innerHTML += `
+                <tr>
+                        <td>${d.category_name}</td>
+                        <td>
+                            <img style="width:50px;" src="../${d.image_url}" alt="${d.image_url}" class="img-fluid rounded">
+                        </td>
+                        <td>
+                            <button onclick="editCategoryForm(${d.category_id})" type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#editCategoryModal">
+                                Edit
+                            </button>
+                            <button onclick="removeCategory(${d.category_id})" type="button" class="btn btn-danger" >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `
+
+            });
+
+        }
+    )
+</script>
