@@ -1,7 +1,12 @@
 
-let serverURL = "http://localhost/spotlight_scoop/"
+let serverURL;
 
-// let serverURL = "https://spotlightscoop.000webhostapp.com/"
+if (window.location.href.includes("localhost")) {
+  serverURL = "http://localhost/spotlight_scoop/";
+} else {
+  serverURL = "https://spotlightscoop.000webhostapp.com/";
+}
+
 
 function getCategories(){
     fetch(`${serverURL}server.php?f=get_category`)
