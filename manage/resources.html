@@ -6,6 +6,14 @@
         </button>
     </div>
 
+    <div id="successMessage" class="alert d-none alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="errorMessage" class="alert alert-danger d-none alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <table class="table table-striped text-center">
         <thead>
             <tr>
@@ -120,19 +128,21 @@
         addResource(formData)
             .then(d => {
                 // console.log(d)
-                successMessage.innerHTML += d.message
+                // successMessage.innerHTML += d.message
+
+                alert(d.message)
 
                 // const categoryModalCloseBtn = document.querySelector('#categoryModalCloseBtn');
 
                 // categoryModalCloseBtn.click()
 
-                successMessage.classList.remove('d-none')
+                // successMessage.classList.remove('d-none')
 
-                setTimeout(() => {
+                // setTimeout(() => {
 
                     // location.href = 'dashboard.html?f=resources'
 
-                }, 1000);
+                // }, 1000);
 
             })
 
@@ -148,7 +158,7 @@
 
             let category = document.getElementById("category")
 
-        
+
 
             data.data.forEach(d => {
 
@@ -160,5 +170,39 @@
 
         }
     )
+
+    function removeResource(resourceID) {
+
+        const confirmDel = confirm("Confirm Removal of resource");
+
+        // Create a new FormData object
+        const formData = new FormData();
+
+        // Append the data to the FormData object
+        formData.append('resource_id', resourceID);
+
+        if (confirmDel) {
+            deleteResource(formData)
+                .then(
+                    (d) => {
+                        // console.log(d)
+
+                        // successMessage.innerHTML += d.msg
+
+                        alert(d.msg)
+
+                        // successMessage.classList.remove('d-none')
+
+                        // setTimeout(() => {
+
+                        // location.href = 'dashboard.html?f=resources'
+
+                        // }, 1000);
+
+                    }
+                )
+        }
+
+    }
 
 </script>

@@ -315,6 +315,29 @@ class actions extends Database
     }
 
 
+    function deleteResource()
+    {
+
+        $conn = $this->connect();
+
+        $resource_id = $_POST['resource_id'];
+
+        $sql = "DELETE from resources WHERE resource_id=$resource_id";
+
+        if ($conn->query($sql)) {
+
+            $resp = array(
+                'status' => 'success',
+                'msg' => 'Resource Removed'
+            );
+
+            echo json_encode($resp);
+
+        }
+
+    }
+
+
 }
 
 $actions = new actions("localhost", "root", "", "spotlight_scoop");
@@ -342,6 +365,9 @@ switch ($action) {
         break;
     case 'add_resource':
         echo $actions->insertResource();
+        break;
+    case 'delete_resource':
+         echo $actions->deleteResource();
         break;
 }
 

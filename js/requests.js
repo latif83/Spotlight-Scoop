@@ -1,7 +1,7 @@
 
-// let serverURL = "http://localhost/spotlight_scoop/"
+let serverURL = "http://localhost/spotlight_scoop/"
 
-let serverURL = "https://spotlightscoop.000webhostapp.com/"
+// let serverURL = "https://spotlightscoop.000webhostapp.com/"
 
 function getCategories(){
     fetch(`${serverURL}server.php?f=get_category`)
@@ -89,7 +89,24 @@ function addCategory(formData){
 
 
   function deleteCategory(formData){
-    return fetch('../server.php?f=delete_category', {
+    return fetch(`${serverURL}server.php?f=delete_category`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json(); // parse response data as JSON and return it
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', JSON.stringify(error));
+    });
+  }
+
+  function deleteResource(formData){
+    return fetch(`${serverURL}server.php?f=delete_resource`, {
       method: 'POST',
       body: formData
     })
@@ -129,7 +146,7 @@ function getResources(category){
 
         const domain = window.location.origin;
 
-        resourceCount.innerHTML = data.data ? data.data.length : 0
+        if(resourceCount) resourceCount.innerHTML = data.data ? data.data.length : 0
 
         if(resourceList && data.status == "error"){
 
@@ -147,15 +164,6 @@ function getResources(category){
 
         }
 
-        let resource = {
-          title: 'Peaky Blinders',
-          image: 'uploads/647a310bb7428_photo_2023-06-02_18-10-30.jpg',
-          category: 'TV Shows',
-          description: 'A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.',
-          rating: '8.80',
-          date: '2023-06-02 18:12:27',
-          watchURL: 'https://t.me/+QGcN-5tz6vk1OTg0'
-        };
 
         data.data.forEach(d => {
 
@@ -172,7 +180,7 @@ function getResources(category){
               <td>${d.category}</td>
               <td>
                 <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-danger" onclick="removeResource(${d.resource_id})">Delete</button>
               </td>
             </tr>
           
