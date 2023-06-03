@@ -350,16 +350,16 @@
 	</div>
 
 	<script>
-		function openModal(resource) {
+		function openModal(resourceId) {
 
-			resource = JSON.parse(decodeURIComponent(resource))
+			let resource = resources.find((res)=> res.resource_id == resourceId)
 
-			// console.log(resource)
+			console.log(resource)
 			// Set modal title
 			document.getElementById('resourceModalLabel').textContent = resource.resource_name;
 
 			// Set modal image
-			document.getElementById('resourceImage').src = resource.image_url;
+			document.getElementById('resourceImage').src = serverURL + resource.image_url;
 
 			// Set modal category
 			document.getElementById('resourceCategory').textContent = resource.category;
