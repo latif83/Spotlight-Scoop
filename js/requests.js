@@ -181,7 +181,7 @@ function getResources(category){
               <td>${d.resource_description}</td>
               <td><a href="${d.resource_url}" target="_blank"> ${d.resource_url} </a></td>
               <td>${d.rating}</td>
-              <td> <img src="${domain}/${d.image_url}" class="img-fluid rounded" style="height:50px;" /> </td>
+              <td> <img src="${serverURL}/${d.image_url}" class="img-fluid rounded" style="height:50px;" /> </td>
               <td>${d.category}</td>
               <td>
                 <button class="btn btn-primary">Edit</button>
@@ -196,7 +196,7 @@ function getResources(category){
 
               resourceList.innerHTML += `
                 <div onclick="openModal('${encodeURIComponent(JSON.stringify(d))}')" class="movie-item-style-2 movie-item-style-1">
-							<img src="${d.image_url}" alt="">
+							<img src="${serverURL}/${d.image_url}" alt="">
 							<!--<div class="hvr-inner">
 								<a href="">Preview<i class="ion-android-arrow-dropright"></i> </a>
 							</div>-->
