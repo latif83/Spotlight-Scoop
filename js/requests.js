@@ -206,7 +206,7 @@ function getResources(category){
 							<div class="mv-item-infor">
               <h3 class="text-light" style="color: white;"> ${d.resource_name} </h3>
                             <p style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; margin-bottom:2%;"> ${d.resource_description} </p>
-                            <button class="btn btn-dark" onclick="openModal('${encodeURIComponent(JSON.stringify(d))}')" style="margin-bottom:2%;"> Read More... </button>
+                            <button class="btn btn-dark" onclick="openModal(${d.resource_id})" style="margin-bottom:2%;"> Read More... </button>
 								<h6><a href="${d.resource_url}" target="_blank">Open telegram link</a></h6>
 								<p class="rate"><i class="ion-android-star"></i><span>${d.rating}</span> /10</p>
 							</div>
