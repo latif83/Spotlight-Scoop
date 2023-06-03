@@ -127,6 +127,7 @@ function addCategory(formData){
     });
   }
   
+  let resources;
 
 function getResources(category){
 
@@ -141,7 +142,9 @@ function getResources(category){
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        // console.log(data);
+
+        resources = data.data
 
         let resourceList = document.getElementById('resourceList')
 
@@ -195,8 +198,8 @@ function getResources(category){
             if(resourceList){
 
               resourceList.innerHTML += `
-                <div onclick="openModal('${encodeURIComponent(JSON.stringify(d))}')" class="movie-item-style-2 movie-item-style-1">
-							<img src="${serverURL}/${d.image_url}" alt="">
+                <div onclick="openModal(${d.resource_id})" class="movie-item-style-2 movie-item-style-1">
+							<img src="${serverURL}${d.image_url}" alt="">
 							<!--<div class="hvr-inner">
 								<a href="">Preview<i class="ion-android-arrow-dropright"></i> </a>
 							</div>-->
