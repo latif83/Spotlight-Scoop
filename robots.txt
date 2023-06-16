@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:          # Allow all pages by default
+Disallow: /        # Disallow all pages
+Allow: /$          # Allow only the homepage (index page)
+Allow: /index.html # Allow the specific "index.html" file
